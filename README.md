@@ -1,2 +1,2 @@
 # amazing-rep
-Demo for LA.
+Demo for LA og Studentene.
