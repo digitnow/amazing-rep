@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IS-114 Hjemmeside</title>
+    <style>
+       @media only screen and (max-width: 640px) {
+	header {
+		position: absolute;
+	}
+	#menu-icon {
+		display: inline-block;
+	}
+	nav ul, nav:active ul {
+		display: none;
+		position: absolute;
+		padding: 20px;
+		background: #c5c5c5;
+		right: 10px;
+		top: 65px;
+		width: 35%;
+	}
+	nav:hover ul {
+		display: block;
+	}
+	nav li {
+		text-align: center;
+		width: 100%;
+		padding: 15px 0;
+		margin: 0;
+	}
+}
+</style>
+</head>
+<body>
+
+    <p>Våre første steg for å tegne med HTML og CSS kode.</p>
+    <h1>The Wiki Center Of Exampland</h1>
+ <nav>
+  <ul>
+   <li><a href="/">Home</a></li>
+   <li><a href="/events">Current Events</a></li>
+   ...more...
+  </ul>
+ </nav>
+ <article>
+  <header>
+   <h1>Demos in Exampland</h1>
+   <p>Written by A. N. Other.</p>
+  </header>
+  <nav>
+   <ul>
+    <li><a href="#public">Public demonstrations</a></li>
+    <li><a href="#destroy">Demolitions</a></li>
+    ...more...
+   </ul>
+  </nav>
+  <div>
+   <section id="public">
+    <h1>Public demonstrations</h1>
+    <p>...more...</p>
+   </section>
+   <section id="destroy">
+    <h1>Demolitions</h1>
+    <p>...more...</p>
+   </section>
+   ...more...
+  </div>
+  <footer>
+   <p><a href="?edit">Edit</a> | <a href="?delete">Delete</a> | <a href="?Rename">Rename</a></p>
+  </footer>
+ </article>
+ <footer>
+  <p><small>© copyright 1998 Exampland Emperor</small></p>
+ </footer>
+
+</body>
+</html>
