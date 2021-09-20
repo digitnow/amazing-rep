@@ -22,9 +22,12 @@
 </head>
 <body>
   <!-- Her skrives alt innhold, som man ønsker å "tegne" på skjermen. -->
-  
+
   <script>
    <!-- Her skrives kode i JavaScript som "gir liv" til bilde på skjermen. -->
+    fetch('http://142.93.229.196/20210919003735-c9817e8412c9c10215dc47df6d6761b3.json')
+    .then(response => response.json())
+    .then(data => console.log(data));
   </script>
 </body>
 </html>
