@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TITTEL</title>
+    <style>
+     <!-- Her kan stil defineres (vi skal bruke Cascading Style Sheets) -->
+    </style>
+ <!--
+
+    [[[[[[[[     [[[[[[[[        [[[[   [[[[   [[[[  [[[[
+    [::::::[    [::[             [::[   [::[   [::[  [::[
+      [::[      [::[             [::[   [::[   [::[  [::[
+      [::[       [::::[   [[[[   [::[   [::[   [[[[[[[[[[
+      [::[          [::[         [::[   [::[         [::[
+    [::::::[        [::[         [::[   [::[         [::[
+    [[[[[[[[   [[[[[[[[          [[[[   [[[[         [[[[
+
+ -->
+</head>
+<body>
+  <!-- Her skrives alt innhold, som man ønsker å "tegne" på skjermen. -->
+  <div class="debug"></div>
+  <script>
+   // Her skrives kode i JavaScript som "gir liv" til bilde på skjermen.
+   function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+   }
+   async function WriteForever() {
+    let count = 0;
+    while (true) {
+        // execute code forever
+        const debug = document.querySelector('.debug');
+        count++;
+        if (count > 10) {
+            debug.innerText += "All work and no play makes Jack a dullboy\nAll play and no work makes Jack a mere toy\n\n";
+        } else {
+            debug.innerText += "All work and no play makes Jack a dull boy\n"
+        }
+        await sleep(2000);
+    }
+   }
+   WriteForever();
+  </script>
+</body>
+</html>

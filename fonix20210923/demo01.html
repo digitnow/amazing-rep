@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TITTEL</title>
+    <style>
+     <!-- Her kan stil defineres (vi skal bruke Cascading Style Sheets) -->
+    </style>
+ <!--
+
+    [[[[[[[[     [[[[[[[[        [[[[   [[[[   [[[[  [[[[
+    [::::::[    [::[             [::[   [::[   [::[  [::[
+      [::[      [::[             [::[   [::[   [::[  [::[
+      [::[       [::::[   [[[[   [::[   [::[   [[[[[[[[[[
+      [::[          [::[         [::[   [::[         [::[
+    [::::::[        [::[         [::[   [::[         [::[
+    [[[[[[[[   [[[[[[[[          [[[[   [[[[         [[[[
+
+ -->
+</head>
+<body>
+  <!-- Her skrives alt innhold, som man ønsker å "tegne" på skjermen. -->
+  <div class="debug"></div>
+  <script>
+   // Her skrives kode i JavaScript som "gir liv" til bilde på skjermen.
+   setInterval(function(){
+	    console.log("All work and no play makes Jack a dull boy");
+	    // All play and no work makes Jack a mere toy (by the Irish novelist Maria Edgeworth in 1825)
+	    const debug = document.querySelector('.debug');
+        debug.innerText += "All work and no play makes Jack a dull boy\n"
+    }, 2000);//run this thang every 2 seconds
+  </script>
+</body>
+</html>
