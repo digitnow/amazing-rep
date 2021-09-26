@@ -104,7 +104,7 @@
         //results.innerText = JSON.stringify(formJSON, null, 2);
 
         // for remote versjon use http://142.93.229.196/store
-        postData('http://bacit.info/', formJSON)
+        postData('https://bacit.info/', formJSON)
         .then(data => {
            console.log(data); // JSON data parsed by `data.json()` call
            results.innerText = JSON.stringify(data, null, 2);
