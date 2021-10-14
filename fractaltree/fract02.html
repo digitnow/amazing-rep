@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TITTEL</title>
+    <style>
+     /* Her kan stil defineres (vi skal bruke Cascading Style Sheets) */
+     /* Stjerne-velgeren som setter stil for alle elementer i DOM-treet */
+     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Ramme inkludert i størrelsen på elemenentet */
+     }
+     canvas {
+        position: absolute;
+        background: black;
+        width: 100%;
+        height: 100%;
+     }
+     .generate-tree-button {
+        cursor: pointer;
+        outline: none;
+        border: none;
+        position: absolute;
+        left: 0;
+        bottom: 5%;
+        z-index: 10;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 20px 30px;
+        border-radius: 50px;
+        background: rebeccapurple;
+        font-size: 1.4em;
+        width: 300px;
+        overflow: hidden;
+     }
+    </style>
+ <!--
+
+    [[[[[[[[     [[[[[[[[        [[[[   [[[[   [[[[  [[[[
+    [::::::[    [::[             [::[   [::[   [::[  [::[
+      [::[      [::[             [::[   [::[   [::[  [::[
+      [::[       [::::[   [[[[   [::[   [::[   [[[[[[[[[[
+      [::[          [::[         [::[   [::[         [::[
+    [::::::[        [::[         [::[   [::[         [::[
+    [[[[[[[[   [[[[[[[[          [[[[   [[[[         [[[[
+
+ -->
+</head>
+<body>
+  <!-- Her skrives alt innhold, som man ønsker å "tegne" på skjermen. -->
+  <canvas></canvas>
+  <button class="generate-tree-button">Generer Tre</button>
+
+    <script>
+        // Lager knagger til canvas- og button-elementet
+        const canvas = document.querySelector('canvas');
+        const generateButton = document.querySelector('.generate-tree-button');
+        // Setter canvas dimensjoner til hovedvinduets dimensjoner
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        // Lager knagg til canvas kontekst (lineto, stroketo og fylle metoder)
+        const ctx = canvas.getContext('2d');
+
+        // startX og startY - punktet som treet skal vokse fra (koordinater til første linje)
+        // X er posisjon på den horisontale aksen
+        // Y er posisjon på den vertikale aksen (fra toppen av skjermen og nedover)
+        // len - lengden til første linje
+        // branchWidth - hvor tjukke skal grener være
+        // color1 - for hoveddelen av treet
+        // color2 - for blader av treet
+
+        function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
+            ctx.beginPath();
+            ctx.save(); // lagrer tilstanden til canvas og legger den på en "stack"
+            ctx.strokeStyle = color1;
+            ctx.fillStyle = color2;
+            ctx.lineWidth = branchWidth;
+            ctx.translate(startX, startY);
+            ctx.rotate(angle * Math.PI/180); // konverterer grader til radianer
+            ctx.moveTo(0,0);
+            ctx.lineTo(0, -len);
+            ctx.stroke();
+
+            if (len < 10) {
+                ctx.restore(); // Gjenoppretter den nyeste tilstanden til canvas
+                return; // Stopper funksjonen (for at den ikke forgrener uendelig)
+            }
+
+            // Rekursivt kall
+            drawTree(0, -len, len * 0.75, angle + 5, branchWidth);
+            drawTree(0, -len, len * 0.75, angle - 5, branchWidth);
+
+            ctx.restore();
+        }
+
+        drawTree(canvas.width/2, canvas.height - 80, 120, 0, 2, "rebeccapurple", "green");
+    </script>
+</body>
+</html>
