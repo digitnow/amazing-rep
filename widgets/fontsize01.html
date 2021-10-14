@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eksempel med endring av fontstørrelse versjon 01</title>
+    <style>
+     /* Her kan stil defineres (vi skal bruke Cascading Style Sheets) */
+    </style>
+    <!--
+
+       [[[[[[[[     [[[[[[[[        [[[[   [[[[   [[[[  [[[[
+       [::::::[    [::[             [::[   [::[   [::[  [::[
+         [::[      [::[             [::[   [::[   [::[  [::[
+         [::[       [::::[   [[[[   [::[   [::[   [[[[[[[[[[
+         [::[          [::[         [::[   [::[         [::[
+       [::::::[        [::[         [::[   [::[         [::[
+       [[[[[[[[   [[[[[[[[          [[[[   [[[[         [[[[
+
+    -->
+</head>
+<body> <!-- innholdet i html-dokumentet -->
+<h1>DEMO HTML, CSS og JavaScript</h1>
+<div id="div1">
+    <p>Denne nettsiden er tilrettelagt ...</p>
+</div>
+<a href="javascript:stoerreSkrift();"><h2>Større skrift</h2></a>
+<a href="javascript:mindreSkrift();">Mindre skrift</a>
+<script>
+    // em er relativt til fontstørrelse til foreldreelement
+    // rem er relativt til fontstørrelsen for html (hele siden, vanlig 16px)
+    function stoerreSkrift() {
+        var div = document.getElementById("div1");
+        //div.style.fontSize="larger"; // dette er relativt i forhold til font-størrelsen til foreldreelementet
+        div.style.fontSize="xx-large";
+        div.style.lineHeight="40px";
+    }
+    function mindreSkrift() {
+        var div = document.getElementById("div1");
+        //div.style.fontSize="smaller"; // dette er relativt i forhold til font-størrelsen til foreldreelementet
+        div.style.fontSize="medium"; // "medium" er vanligvis standardstørrelsen i Google Chrome
+        div.style.lineHeight="normal";
+    }
+</script>
+</body>
+</html>

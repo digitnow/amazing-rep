@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eksempel med endring av fontstørrelse versjon 02</title>
+    <style>
+     /* Her kan stil defineres (vi skal bruke Cascading Style Sheets) */
+
+    </style>
+    <!--
+
+       [[[[[[[[     [[[[[[[[        [[[[   [[[[   [[[[  [[[[
+       [::::::[    [::[             [::[   [::[   [::[  [::[
+         [::[      [::[             [::[   [::[   [::[  [::[
+         [::[       [::::[   [[[[   [::[   [::[   [[[[[[[[[[
+         [::[          [::[         [::[   [::[         [::[
+       [::::::[        [::[         [::[   [::[         [::[
+       [[[[[[[[   [[[[[[[[          [[[[   [[[[         [[[[
+
+    -->
+</head>
+<body>
+<section>
+<nav>
+    <h4 style="color: green">Endre tekststørrelse</h4>
+    <button type="button" onclick="endreStMedKnapp('smaller')" name="knapp1">-A</button>
+    <button type="button" onclick="endreStMedKnapp('medium')" name="knapp2">A</button>
+    <button type="button" onclick="endreStMedKnapp('larger')" name="btn3">A+</button>
+</nav>
+</section>
+<section>
+    <div style="padding: 20px; margin: 50px; border: 3px solid blue;">
+        <p id="tekst">
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+        </p>
+    </div>
+</section>
+<section>
+    <input type="range" min="10" max="30" id="slider" onchange="endreStMedSlider()" value="20" />
+</nav>
+
+<script>
+        var tekst = document.getElementById("tekst");
+
+        function endreStMedKnapp(size) {
+            // Sette verdien til parameter som fontSize
+            tekst.style.fontSize = size;
+        }
+
+        function endreStMedSlider() {
+            var slider = document.getElementById("slider");
+            // Sette verdien til slider som fontSize
+            // Siden standardverdien er 20, så kan man dele med 20 for å få 1em
+            em = slider.value/20 + "em";
+            tekst.style.fontSize = em;
+        }
+    </script>
+
+</body>
+</html>
